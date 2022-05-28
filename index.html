@@ -1,38 +1,69 @@
+
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Sketch Identification</title>
+  <head>
+    <title>Hand Gesture</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<body>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+
+  </head>
+
+  <body id="joe">
+  <div class="container">
+  
     <center>
-        <!-- Modal -->
-        <div id="myModal" class="modal fade">
-            <div class="modal-content">
-                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Sketches</h4>
-                </div>
-                <div class="modal-body"> <img src="sketch1.png"> <img src="sketch2.png"> </div>
-            </div>
-        </div>
-        <h1>Sketch Identification
-            <button id="show_sketch" class="btn btn-info" data-toggle="modal" data-target="#myModal">Show
-                Sketch</button>
-        </h1>
-        <p id="label">Label : </p>
-        <p id="confidence">Confidence : </p>
-        <button class="btn btn-danger btn-lg" onclick="clearcanvas()">Clear Canvas</button>
-    </center>
-    <script src="main.js"></script>
-</body>
+      <h3 class="btn btn-danger heading">Hand Gestures
+      <br>
+      <span>&#9994;</span>
+      <span>&#9995;</span>
+      <span>&#9996;</span>
+      <span>&#9757;</span>
+      </h3>
+      <br>
 
+      <p style="font-size: 22px;">Take your selfie to generate emoji
+      	<br>
+        <b style="color: yellow">Are you pointing?</b>
+        <br>
+        <b style="color: black">Are you holding a peace sign?</b>
+        <br>
+        <b style="color: red">Are you closing your fist?</b>
+        <br>
+      </p>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <label class="btn btn-primary">Webcam View - </label>
+        <br></br>
+        <div id="camera"></div>
+        <br></br>
+        <button class="btn btn-info" onclick="takesnapshot()">Take Picture</button>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <label class="btn btn-primary">Prediction 1</label>
+        <p class="emotion_name" id="result_emotion_name"></p>
+        <label class="emoji" id="showemoji"></label>
+        <br></br>
+        <label class="btn btn-primary">Prediction 2</label>
+        <p class="emotion_name" id="result_emotion_name2"></p>
+        <label class="emoji" id="showemoji2"></label>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+	      <label class="btn btn-primary">Snapshot - </label>
+        <br></br>
+        <div id="result"></div>
+        <br></br>
+        <button class="btn btn-info" onclick="predictemotion()">Predict Hand Sign</button>
+      </div>
+    </center>
+
+  </div>
+
+<script src="main.js"></script>
+
+  </body>
 </html>
+
+ 
